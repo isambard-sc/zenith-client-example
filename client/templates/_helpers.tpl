@@ -57,5 +57,5 @@ ssh_key.pub: |
   {{- required "ssh public key is required" .Values.zenithClient.sshKey.public | nindent 2 }}
 client.yaml: |
   {{- tpl (toYaml .Values.zenithClient.config) . | nindent 2 }}
-  forwardToPort: 8080
+  forwardToPort: 8000
 {{- end }}

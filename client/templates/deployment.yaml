@@ -14,12 +14,8 @@ spec:
         zenith.stackhpc.com/config-checksum: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
     spec:
       securityContext: {{ toYaml .Values.podSecurityContext | nindent 8 }}
+      hostNetwork: false
       containers:
-        - name: app
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          securityContext: {{ toYaml .Values.securityContext | nindent 12 }}
-          resources: {{ toYaml .Values.resources | nindent 12 }}
         - name: zenith-client
           image: "{{ .Values.zenithClient.image.repository }}:{{ .Values.zenithClient.image.tag }}"
           imagePullPolicy: {{ .Values.zenithClient.image.pullPolicy }}

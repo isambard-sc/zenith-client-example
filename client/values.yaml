@@ -1,9 +1,3 @@
-# The image for the app
-image:
-  repository: jmalloc/echo-server
-  tag: v0.3.7
-  pullPolicy: IfNotPresent
-
 zenithClient:
   sshKey:
     public:
@@ -22,7 +16,7 @@ zenithClient:
     pullPolicy: IfNotPresent
   resources: {}
 
-replicaCount: 1
+replicaCount: 2
 
 podSecurityContext:
   runAsNonRoot: true
